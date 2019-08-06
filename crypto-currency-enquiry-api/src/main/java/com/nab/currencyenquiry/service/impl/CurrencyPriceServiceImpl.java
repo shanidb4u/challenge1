@@ -30,7 +30,8 @@ public class CurrencyPriceServiceImpl implements CurrencyPriceService {
     public CurrencyPrice getCurrencyPrices(String currencyName, LocalDate date) {
         List<CurrencyPriceEntity> prices = repository.findPricesByCurrencyAndDate(currencyName, date);
         if (CollectionUtils.isEmpty(prices)) {
-            throw new NotFoundException();
+            log.info("No Price information  is found for Currency " + currencyName + " And Date " + date.toString());
+            throw new NotFoundException("No Price information available for given input");
         } else {
             return CurrencyPriceMapper.mapToCurrencyPrices(currencyName, date,
                     repository.findPricesByCurrencyAndDate(currencyName, date));
@@ -41,8 +42,10 @@ public class CurrencyPriceServiceImpl implements CurrencyPriceService {
     public TradeProfit getTradeProfit(String currencyName, LocalDate date) {
         List<CurrencyPriceEntity> prices = repository.findPricesByCurrencyAndDate(currencyName, date);
         if (CollectionUtils.isEmpty(prices)) {
-            throw new NotFoundException();
+            log.info("No Price information  is found for Currency " + currencyName + " And Date " + date.toString());
+            throw new NotFoundException("No Price information available for given input");
         } else {
+            log.info("Calculating the Trade profit for " + currencyName + " And Date " + date.toString());
             return calculateTradeProfit(prices);
         }
     }

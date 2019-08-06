@@ -29,21 +29,21 @@ public class CurrencyPriceController {
 
     @GetMapping(value = "/prices/{currency}")
     public CurrencyPrice getCryptoPrices(@PathVariable String currency, @RequestParam(name = "date", required = false) String dateStr) {
+        log.info(CurrencyPriceController.class.getName() + ":" + "getCryptoPrices()");
         LocalDate priceDate = LocalDate.now().minusDays(1);
         if (!StringUtils.isEmpty(dateStr)) {
             priceDate = DateValidator.validateAndConvertStringToDate(dateStr);
         }
-        log.info(CurrencyPriceController.class.getName() + ":" + "getCryptoPrices()");
         return currencyPriceService.getCurrencyPrices(currency, priceDate);
     }
 
     @GetMapping(value = "/tradeProfit/{currency}")
     public TradeProfit getTradeProfit(@PathVariable String currency, @RequestParam(name = "date", required = false) String dateStr) {
+        log.info(CurrencyPriceController.class.getName() + ":" + "getTradeProfit()");
         LocalDate priceDate = LocalDate.now().minusDays(1);
         if (!StringUtils.isEmpty(dateStr)) {
             priceDate = DateValidator.validateAndConvertStringToDate(dateStr);
         }
-        log.info(CurrencyPriceController.class.getName() + ":" + "getTradeProfit()");
         return currencyPriceService.getTradeProfit(currency, priceDate);
     }
 
