@@ -8,17 +8,14 @@ import {
 } from "react-router-dom";
 import App from './components/App';
 import CryptoCurrencyPrice from './components/CryptoCurrencyPrice';
+import './styles/app.scss';
 
 const routing = (
   <Router>
     <div>
-      <ul>
-        <li>
-          <NavLink exact activeClassName="active" to="/">
-            Home
-          </NavLink>
-        </li>
-      </ul>
+      <NavLink exact activeClassName="active" to="/">
+        Home
+      </NavLink>
       <hr />
       <Switch>
         <Route exact path="/" component={App} />

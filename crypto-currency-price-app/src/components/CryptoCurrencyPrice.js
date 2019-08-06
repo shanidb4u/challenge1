@@ -70,10 +70,11 @@ export default class CryptoCurrencyPrice extends Component {
                     selected={this.state.startDate}
                     onChange={this.handleChange}
                 /></div>
+                <div><h3>Price</h3></div>
                 <div>
                     <CryptoPriceTable quotes={this.state.quotes} />
                 </div>
-                <div>Trade Profit</div>
+                <div><h3>Trade Profit</h3></div>
                 <div>
                     <CryptoTradeProfitTable tradeProfit={this.state.tradeProfit} />
                 </div>

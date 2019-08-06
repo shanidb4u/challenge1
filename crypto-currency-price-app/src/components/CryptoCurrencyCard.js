@@ -11,7 +11,7 @@ export default class CryptoCurrencyCard extends Component {
                     <h4 className="card-title">{this.props.currency.name}</h4>
                     <h6 className="card-subtitle mb-2 text-muted">{this.props.currency.symbol}</h6>
                     <p className="text-justify" style={{ fontSize: '13px' }}>{this.props.currency.description}</p>
-                    <Link className="btn-view-rates" to={"/price/" + this.props.currency.symbol} >View Price</Link>
+                    <Link className="btn btn-outline-info" to={"/price/" + this.props.currency.symbol} >View Price</Link>
                 </div>
             </div>
         </div>);

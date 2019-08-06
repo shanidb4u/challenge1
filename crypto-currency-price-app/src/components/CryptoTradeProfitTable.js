@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const CryptoTradeProfitTable = (props) => (
     <div>
         <table className="table">
-            <thead>
+            <thead className="thead-light">
                 <tr>
                     <th className="text-uppercase">BUY</th>
                     <th className="text-uppercase">SELL</th>
